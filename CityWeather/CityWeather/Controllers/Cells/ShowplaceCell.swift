@@ -25,11 +25,7 @@ class ShowplaceCell : UITableViewCell {
     return label
     }()
     
-    var showplaceImageView : UIImageView = {
-        let imgView = UIImageView()
-        imgView.loadImage(url: "https://ru.freepik.com/premium-photo/green-grass-texture-with-blang-copyspace-against-blue-sky_5207864.htm#page=1&query=field&position=0")
-        return imgView
-    }()
+    var showplaceImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

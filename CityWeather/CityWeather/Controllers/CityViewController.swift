@@ -247,9 +247,9 @@ extension CityViewController {
         var lat : Double = 0.0
         let configuration = URLSessionConfiguration.default
         let session = URLSession( configuration: configuration)
-        let accessKey = "qUWACSMA8XxxEni8UkYHGjZBPG9WTkKy"
+        //let accessKey = "qUWACSMA8XxxEni8UkYHGjZBPG9WTkKy"
        //let accessKey = "lrjGSI59G857CNkVurOqm7W2FngsGRGW"
-         //let accessKey = "txOJDOLABbTlfqMKOcPpy7kkgLs020QC"
+         let accessKey = "txOJDOLABbTlfqMKOcPpy7kkgLs020QC"
          let url = URL( string: "http://dataservice.accuweather.com/locations/v1/"+cityKey+"?apikey="+accessKey)!
          let task = session.dataTask(with: url){  data, response, error in
              if let json = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String : Any] {
