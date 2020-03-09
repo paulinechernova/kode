@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G84" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CoreCity" representedClassName="CoreCity" syncable="YES">
+        <attribute name="key" attributeType="String" defaultValueString="0"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="place" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Place" inverseName="corecity" inverseEntity="Place"/>
+    </entity>
+    <entity name="Geo" representedClassName="Geo" syncable="YES">
+        <attribute name="lat" attributeType="Double" minValueString="-180" maxValueString="180" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" attributeType="Double" minValueString="-180" maxValueString="180" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="geo" inverseEntity="Place"/>
+    </entity>
+    <entity name="Place" representedClassName="Place" syncable="YES">
+        <attribute name="desc" attributeType="String" maxValueString="120" defaultValueString=""/>
+        <attribute name="descfull" attributeType="String" maxValueString="10000" defaultValueString=""/>
+        <attribute name="imageURL" attributeType="String" defaultValueString=""/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="corecity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreCity" inverseName="place" inverseEntity="CoreCity"/>
+        <relationship name="geo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Geo" inverseName="place" inverseEntity="Geo"/>
+    </entity>
+    <elements>
+        <element name="CoreCity" positionX="0" positionY="63" width="128" height="88"/>
+        <element name="Geo" positionX="-36" positionY="9" width="128" height="88"/>
+        <element name="Place" positionX="27" positionY="81" width="128" height="133"/>
+    </elements>
 </model>
