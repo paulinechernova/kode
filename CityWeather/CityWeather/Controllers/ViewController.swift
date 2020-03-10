@@ -77,10 +77,9 @@ extension ViewController {
         navigationItem.searchController = searchController
         searchController.searchBar.placeholder = "Поиск"
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        definesPresentationContext = false
+        definesPresentationContext = true
         searchController.searchBar.delegate = self
         configureSearchBar()
     }
@@ -164,7 +163,6 @@ extension City: Comparable {
 
 extension ViewController {
     private func getNewCities(city: String) {
-        do {
             var newFoundCities : [City] = []
             foundCities.removeAll()
             if city.invalid || city.isEmpty
@@ -205,9 +203,6 @@ extension ViewController {
             }
             }
             task.resume()
-        } catch{
-            print(error)
-        }
     }
 }
 

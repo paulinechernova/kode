@@ -19,8 +19,6 @@ extension UIView {
           let insets = self.safeAreaInsets
           topInset = insets.top
           bottomInset = insets.bottom
-          //rightInset = insets.right
-          //leftInset = insets.left
         }
 
 

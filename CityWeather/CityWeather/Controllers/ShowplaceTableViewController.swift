@@ -96,9 +96,7 @@ extension ShowplaceTableViewController {
         let allLastCities = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [City]
         let key  =  allLastCities[0].key
         let allPlaces = fetchPlaces(cityKey: key)
-        print(allPlaces.count)
         places =  (allPlaces.allObjects as NSArray) as! [NSManagedObject]
-        print(places.count)
         DispatchQueue.main.async {
              self.showplaceTableView.reloadData()
         }

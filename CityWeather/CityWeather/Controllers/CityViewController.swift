@@ -106,21 +106,18 @@ class CityViewController : ViewController {
     }
     
     private func configureMap(cityKey: String){
-           mapView.register(MapMarker.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        
-            contentView.addSubview(mapView)
-            mapView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor , bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 250, enableInsets: false)
+        mapView.register(MapMarker.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        contentView.addSubview(mapView)
+        mapView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor , bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 250, enableInsets: false)
        }
     private func configureMapMarker(){
         let location = CLLocation(latitude: Double(coordinates.lat), longitude: Double(coordinates.lon) )
-               let regionRadius: CLLocationDistance = 1500
-               
-               let annotation = MKPointAnnotation()
-               annotation.coordinate =  CLLocationCoordinate2D( latitude: Double(coordinates.lat) as! CLLocationDegrees , longitude: Double(coordinates.lon))
-               mapView.addAnnotation(annotation)
-        
-               let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-               mapView.setRegion(coordinateRegion, animated: true)
+        let regionRadius: CLLocationDistance = 1500
+        let annotation = MKPointAnnotation()
+        annotation.coordinate =  CLLocationCoordinate2D( latitude: Double(coordinates.lat) , longitude: Double(coordinates.lon))
+        mapView.addAnnotation(annotation)
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
 
     private func configureNameLabel(cityName : String){

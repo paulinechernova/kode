@@ -17,8 +17,6 @@ extension UIViewController {
         footer.clipsToBounds = true
         footer.frame = self.view.bounds.inset(by: .init(top: self.view.frame.size.height - 80 , left: 0, bottom: 0, right: 0))
          self.view.addSubview(footer)
-
-         //footer.anchor(top: self.view.bottomAnchor , left: self.view.leftAnchor , bottom: self.view.bottomAnchor, right: self.view.rightAnchor , paddingTop: -80, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
         
         footer.backgroundColor = UIColor.dynamicBackgroundColor
         let label = addLabel(mainView: footer)
