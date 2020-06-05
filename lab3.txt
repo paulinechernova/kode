@@ -1,0 +1,54 @@
+#include <iostream>
+#include <ctime>
+#include <cmath>
+
+using namespace std;
+const int m=1000;
+int t1, t2;
+double norma, sum=0, tmp;
+double A[m][m], Bt[m][m], B[m][m], C[m][m];
+int main(int argc, char** argv){
+	freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
+    for(int j=0; j<m; j++)
+    	for(int i=0; i<m; i++)
+    		scanf("%lf",&A[i][j]);
+	for(int j=0; j<m; j++)
+    	for(int i=0; i<m; i++)
+    		scanf("%lf",&B[i][j]);
+
+	t1=clock();	
+    //транспонирование
+    for(int i=0; i<m; i++)
+    	for(int j=0; j<m; j++)
+    		Bt[j][i] = B[i][j];
+		
+    //произведение матриц
+	for(int i=0; i<m; i++)
+		for(int j=0; j<m; j++){
+			tmp=0;
+			for(int k=0; k<m; k++)
+				tmp += A[i][k] * Bt[j][k];
+			C[i][j]=tmp;	
+		}
+				
+	//произведение матриц
+	for(int i=0; i<m; i++)
+		for(int j=0; j<m; j++){
+			tmp=0;
+			for(int k=0; k<m; k++)
+				tmp += C[i][k] * A[j][k];
+			sum+=tmp*tmp;	
+		}
+
+	//норма
+	//for(int i=0; i<m; i++)
+	//	for(int j=0; j<m; j++)
+	//		sum+=D[i][j]*D[i][j];
+	
+	norma=sqrt(abs(sum));	
+	cout << norma;
+	t2=clock();
+	printf("\n%f\n",((float)t2-t1)/CLOCKS_PER_SEC);
+	return 0;
+}
